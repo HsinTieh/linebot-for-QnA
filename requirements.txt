@@ -1,3 +1,5 @@
-package Flask==0.11 #
-package Jinja2==2.8 #
-package gunicorn==19.6.0 #
+line-bot-sdk
+flask
+gunicorn==19.9.0
+beautifulsoup4==4.6.3
+imgurpython==1.1.7
