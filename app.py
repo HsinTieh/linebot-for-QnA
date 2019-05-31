@@ -43,7 +43,7 @@ def handle_message(event):
 
 def weather_fun(message):
     city=city_fun(message)
-    target_url = 'https://www.cwb.gov.tw/V7/forecast/taiwan/'+city+'.htm'
+    target_url = 'https://www.cwb.gov.tw/V7/forecast/taiwan/'+'Taichung_City'+'.htm'
     rs = requests.session()
     res = rs.get(target_url, verify=False)
     res.encoding = 'unicode' 
@@ -75,6 +75,7 @@ def city_fun(sentence):
         return 'Taichung_City'
     elif "天氣" in sentence:
          return 'Taichung_City'
+	return sentence
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
