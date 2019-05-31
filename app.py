@@ -43,29 +43,8 @@ def handle_message(event):
 
 def weather_fun(message):
     city=city_fun(message)
-    target_url = 'https://www.cwb.gov.tw/V7/forecast/taiwan/'+'Taichung_City'+'.htm'
-    rs = requests.session()
-    res = rs.get(target_url, verify=False)
-    res.encoding = 'unicode' 
-    soup = BeautifulSoup(res.text,'html.parser', from_encoding="gb18030")
-    head = soup.find('table').thead.find_all('tr')
-    body = soup.find('table').tbody.find_all('tr')
 
-    for row in head :
-      mes=row.find_all('th')[0].text+"\n"
- 
-    for row in body :
-      time=row.find_all('th')[0].text
-      temp=row.find_all('td')[0].text
-      com=row.find_all('td')[2].text
-      humi=row.find_all('td')[3].text
-      status=row.find_all('td')[1].find('img',alt=True)
-      mes =mes+ '{}'.format(time)+"\n"\
-           +'天氣狀態"{}'.format(status["alt"])+'\n'\
-           +'溫度:{}'.format(temp)+"\n"\
-           +'舒適度:{}'.format(com)+"\n"\
-           +'濕度:{}'.format(humi)+"\n\n"
-    return mes
+    return city
 def city_fun(sentence):
     if "高雄" in sentence:
         return 'Kaohsiung_City'
