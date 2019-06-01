@@ -1,12 +1,8 @@
 import jieba
 import boto3
 from flask import Flask, request, abort
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
-)
+from linebot import (LineBotApi, WebhookHandler)
+from linebot.exceptions import (InvalidSignatureError)
 from linebot.models import *
 jieba.set_dictionary('dict.txt')
 app = Flask(__name__)
@@ -38,17 +34,8 @@ def handle_message(event):
     line_bot_api.reply_message(event.reply_token, message)
 #將句子斷詞
 def processingMssage(mes):
-    with open('stops.txt', 'r', encoding='utf8') as f:
-        stops=f.read().split('\n')
-    splitedStr=''
-    words = jieba.cut(mes)
-    #mes_cut=[]
-    for word in words:
-      if word not in stops:
-        splitedStr+=word+' '
-        #mes_cut.append(word)
-    #searchQuestion(mes_cut)
-    return splitedStr
+    
+    return mes
 def searchQuestion(mes_cut):
     #pro_qna=pd.read_csv('processed.csv',header=None,dtype=str)
     #pro_qna.columns=['question','answer']
