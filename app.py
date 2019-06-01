@@ -34,8 +34,19 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = TextSendMessage(text=event.message.text)
+    message = TextSendMessage(text=o=processingMssage(event.message.text))
     line_bot_api.reply_message(event.reply_token, message)
+def processingMssage(mes):
+    with open('stops.txt', 'r', encoding='utf8') as f:
+        stops=f.read().split('\n')
+    splitedStr=''
+    words = jieba.cut(mes)
+    for word in words:
+      if word not in stops:
+       # segments.append({'word':word,'count':1})
+        splitedStr +=word+' '
+    return splitedStr
+
 
 import os
 if __name__ == "__main__":
