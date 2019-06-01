@@ -1,7 +1,6 @@
 import jieba
 import boto3
 from flask import Flask, request, abort
-
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -43,14 +42,14 @@ def processingMssage(mes):
         stops=f.read().split('\n')
     splitedStr=''
     words = jieba.cut(mes)
-    mes_cut=[]
+    #mes_cut=[]
     for word in words:
       if word not in stops:
         splitedStr+=word+' '
-        mes_cut.append(word)
+        #mes_cut.append(word)
     #searchQuestion(mes_cut)
     return splitedStr
-def searchQuestion():
+def searchQuestion(mes_cut):
     #pro_qna=pd.read_csv('processed.csv',header=None,dtype=str)
     #pro_qna.columns=['question','answer']
     #pro_qna=pro_qna[1:]
@@ -58,7 +57,5 @@ def searchQuestion():
 
 import os
 if __name__ == "__main__":
-
-    
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
