@@ -51,9 +51,9 @@ def processingMssage(mes):
     searchQuestion(mes_cut)
     return splitedStr
 def searchQuestion(mes):
-    pro_qna=pd.read_csv('processed.csv',header=None,dtype=str)
-    pro_qna.columns=['question','answer']
-    pro_qna=pro_qna[1:]
+    #pro_qna=pd.read_csv('processed.csv',header=None,dtype=str)
+    #pro_qna.columns=['question','answer']
+    #pro_qna=pro_qna[1:]
 
     enable=[0,0,0,0,0,0]
     print(mes)
