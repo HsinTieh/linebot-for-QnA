@@ -36,6 +36,7 @@ def callback():
 def handle_message(event):
     message = TextSendMessage(text=processingMssage(event.message.text))
     line_bot_api.reply_message(event.reply_token, message)
+#將句子斷詞
 def processingMssage(mes):
     with open('stops.txt', 'r', encoding='utf8') as f:
         stops=f.read().split('\n')
@@ -43,12 +44,17 @@ def processingMssage(mes):
     words = jieba.cut(mes)
     for word in words:
       if word not in stops:
-       # segments.append({'word':word,'count':1})
-        splitedStr +=word+' '
+        mes_cut.append(word)
+    #searchQuestion(mes_cut)
     return splitedStr
-
+def searchQuestion():
+    return 0
 
 import os
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
+    pro_qna=pd.read_csv('processed.csv',header=None,dtype=str)
+    pro_qna.columns=['question','answer']
+    pro_qna=pro_qna[1:]
+    
+	port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
