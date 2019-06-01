@@ -1,3 +1,4 @@
+import jieba
 from flask import Flask, request, abort
 
 from linebot import (
@@ -7,7 +8,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-
+jieba.set_dictionary('dict.txt')
 app = Flask(__name__)
 
 # Channel Access Token
