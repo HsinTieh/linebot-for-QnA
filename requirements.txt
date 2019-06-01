@@ -4,3 +4,5 @@ beautifulsoup4==4.6.3
 imgurpython==1.1.7
 
 jieba==0.39
+flask==0.8
+numpy==1.6.2
