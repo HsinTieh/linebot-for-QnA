@@ -1,4 +1,5 @@
 import jieba
+import pandas as pd 
 from flask import Flask, request, abort
 
 from linebot import (
@@ -57,7 +58,6 @@ def searchQuestion(mes):
     enable=[0,0,0,0,0,0]
     print(mes)
     for m in mes:
-      print(len(m))
       if len(m)==1:
         enable[0]=1
       elif len(m)==2:
@@ -74,7 +74,6 @@ def searchQuestion(mes):
   
       else :
         enable[5]=1
-    print(enable)
     return 0
 
 import os
