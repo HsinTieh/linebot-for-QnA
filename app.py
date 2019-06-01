@@ -44,6 +44,7 @@ def processingMssage(mes):
     words = jieba.cut(mes)
     for word in words:
       if word not in stops:
+        splitedStr+=word+' '
         mes_cut.append(word)
     #searchQuestion(mes_cut)
     return splitedStr
