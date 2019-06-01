@@ -1,9 +1,6 @@
-line-bot-sdk flask
-Flask==0.8
-Jinja2==2.6
+line-bot-sdk
+flask
 gunicorn==19.9.0
 beautifulsoup4==4.6.3
 imgurpython==1.1.7
-requests==0.11.1
 jieba==0.39
-numpy==1.6.2
