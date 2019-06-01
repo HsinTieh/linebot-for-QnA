@@ -56,19 +56,7 @@ def searchQuestion(mes):
     #pro_qna=pro_qna[1:]
 
     enable=[0,0,0,0,0,0]
-    for m in mes:
-      if len(m)==1:
-        enable[0]=1
-      elif len(m)==2:
-        enable[1]=1
-      elif len(m)==3:
-        enable[2]=1
-      elif len(m)==4:
-        enable[3]=1
-      elif len(m)==5:
-        enable[4]=1
-      else:
-        enable[5]=1
+
     return 0
 
 import os
