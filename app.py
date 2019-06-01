@@ -1,4 +1,8 @@
 #coding:utf-8
+import jieba
+jieba.set_dictionary('dict.txt')
+with open('stops.txt', 'r', encoding='utf8') as f:
+  stops=f.read().split('\n')
 import requests
 from bs4 import BeautifulSoup
 
@@ -38,9 +42,17 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-     message = TextSendMessage(text=weather_fun(event.message.text))
+     message = TextSendMessage(text=processingMssage(event.message.text))
      line_bot_api.reply_message(event.reply_token, message)
-
+def processingMssage(mes):
+    test=''
+    mes_=[]
+    words = jieba.cut(mes)
+    for word in words:
+       if word not in stops:
+          test +=word+' '
+          mes_.append(word)
+    return test
 def weather_fun(message):
     city=city_fun(message)
     target_url = 'https://www.cwb.gov.tw/V7/forecast/taiwan/'+city+'.htm'
