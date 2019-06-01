@@ -5,7 +5,7 @@ with open('stops.txt', 'r', encoding='utf8') as f:
   stops=f.read().split('\n')
 import requests
 from bs4 import BeautifulSoup
-import boto3
+
 
 from flask import Flask, request, abort
 
