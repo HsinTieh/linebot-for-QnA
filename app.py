@@ -47,12 +47,34 @@ def processingMssage(mes):
       if word not in stops:
         splitedStr+=word+' '
         mes_cut.append(word)
-    #searchQuestion(mes_cut)
+    searchQuestion(mes_cut)
     return splitedStr
-def searchQuestion():
+def searchQuestion(mes):
     pro_qna=pd.read_csv('processed.csv',header=None,dtype=str)
     pro_qna.columns=['question','answer']
     pro_qna=pro_qna[1:]
+
+    enable=[0,0,0,0,0,0]
+    print(mes)
+    for m in mes:
+      print(len(m))
+      if len(m)==1:
+        enable[0]=1
+      elif len(m)==2:
+        enable[1]=1
+  
+      elif len(m)==3:
+        enable[2]=1
+  
+      elif len(m)==4:
+        enable[3]=1
+  
+      elif len(m)==5:
+        enable[4]=1
+  
+      else :
+        enable[5]=1
+    print(enable)
     return 0
 
 import os
