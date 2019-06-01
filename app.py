@@ -6,7 +6,7 @@ with open('stops.txt', 'r', encoding='utf8') as f:
 import requests
 from bs4 import BeautifulSoup
 import boto3
-import pandas as pd
+
 from flask import Flask, request, abort
 
 from linebot import (
