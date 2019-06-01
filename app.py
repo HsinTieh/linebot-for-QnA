@@ -42,6 +42,7 @@ def processingMssage(mes):
         stops=f.read().split('\n')
     splitedStr=''
     words = jieba.cut(mes)
+    mes_cut=[]
     for word in words:
       if word not in stops:
         splitedStr+=word+' '
@@ -49,6 +50,9 @@ def processingMssage(mes):
     #searchQuestion(mes_cut)
     return splitedStr
 def searchQuestion():
+    pro_qna=pd.read_csv('processed.csv',header=None,dtype=str)
+    pro_qna.columns=['question','answer']
+    pro_qna=pro_qna[1:]
     return 0
 
 import os
