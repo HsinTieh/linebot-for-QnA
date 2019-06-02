@@ -54,8 +54,8 @@ def processingMssage(mes):
           test +=word+' '
           mes_.append(word)
     #test=searchQuestion(mes_)
-    #checkenable(mes_)
-    cal_index(2)
+    enable=checkenable(mes_)
+    cal_index(2,enable)
     return test
 def searchQuestion(mes_cut):
 #output answer
@@ -103,33 +103,33 @@ def checkenable(mes):
     else :
       enable[5]=1
   return enable
-def cal_index(i):
-  r_list=[]
-  findIndex=[]
-  term_id=0   
- 
+def cal_index(i,enable):
+    r_list=[]
+    findIndex=[]
+    term_id=0   
 
-  if enable[i]==1:
-    with open('w'+str(i+1)+'.csv', 'r') as r:
-      for line in r.readlines():
-        r_cut=line.strip()
-        if r_cut=='':
-          r_cut='error'
-        r_list.append(r_cut.split(','))
 
-      terms=[]
-      for term in r_list: 
-        terms.append(term[1].split())
-      for term in terms:
-        count=0
-        for t in term:
-          for word in mes:
-            if t==word:
-              count+=1
+    if enable[i]==1:
+      with open('w'+str(i+1)+'.csv', 'r') as r:
+        for line in r.readlines():
+          r_cut=line.strip()
+          if r_cut=='':
+            r_cut='error'
+          r_list.append(r_cut.split(','))
+
+        terms=[]
+        for term in r_list: 
+          terms.append(term[1].split())
+        for term in terms:
+          count=0
+          for t in term:
+            for word in mes:
+              if t==word:
+                count+=1
               #print(t,word)
-        findIndex.append(count)
-        term_id+=1 
-  return findIndex
+          findIndex.append(count)
+          term_id+=1 
+    return findIndex
 def weather_fun(message):
     city=city_fun(message)
     target_url = 'https://www.cwb.gov.tw/V7/forecast/taiwan/'+city+'.htm'
