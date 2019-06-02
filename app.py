@@ -48,6 +48,7 @@ def handle_message(event):
 def processingMssage(mes):
     test=''
     mes_=[]
+    enable=[]
     words = jieba.cut(mes)
     for word in words:
        if word not in stops:
@@ -107,7 +108,6 @@ def cal_index(i,enable):
     r_list=[]
     findIndex=[]
     term_id=0   
-
 
     if enable[i]==1:
       with open('w'+str(i+1)+'.csv', 'r') as r:
