@@ -54,8 +54,8 @@ def processingMssage(mes):
           test +=word+' '
           mes_.append(word)
     #test=searchQuestion(mes_)
-    checkenable(mes_)
-    #cal_index(2)
+    #checkenable(mes_)
+    cal_index(2)
     return test
 def searchQuestion(mes_cut):
 #output answer
