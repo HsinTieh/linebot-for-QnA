@@ -54,9 +54,9 @@ def processingMssage(mes):
        if word not in stops:
           test +=word+' '
           mes_.append(word)
-    #test=searchQuestion(mes_)
-    enable=checkenable(mes_)
-    cal_index(2,enable,mes_)
+    test=searchQuestion(mes_)
+    #enable=checkenable(mes_)
+    #cal_index(2,enable,mes_)
     return test
 def searchQuestion(mes_cut):
 #output answer
@@ -68,9 +68,9 @@ def searchQuestion(mes_cut):
 
     finalIndex=[]
     addweight=[0.5,1,3,1.5,1.5,1.5]
-    enable=checkenable()
+    enable=checkenable(mes_cut)
     for i in range(len(enable)):
-      findIndex= cal_index(i)
+      findIndex= cal_index(i,enable,mes_cut)
       if findIndex:
         if finalIndex:
           #print(i,findIndex)
