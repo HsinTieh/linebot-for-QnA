@@ -54,6 +54,7 @@ def processingMssage(mes):
           test +=word+' '
           mes_.append(word)
     #test=searchQuestion(mes_)
+    checkenable()
     return test
 def searchQuestion(mes_cut):
 #output answer
@@ -116,7 +117,6 @@ def cal_index(i):
         r_list.append(r_cut.split(','))
 
       terms=[]
-
       for term in r_list: 
         terms.append(term[1].split())
       for term in terms:
