@@ -53,7 +53,7 @@ def processingMssage(mes):
        if word not in stops:
           test +=word+' '
           mes_.append(word)
-    test=searchQuestion(mes_)
+    #test=searchQuestion(mes_)
     return test
 def searchQuestion(mes_cut):
 #output answer
