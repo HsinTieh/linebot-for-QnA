@@ -53,6 +53,7 @@ def processingMssage(mes):
        if word not in stops:
           test +=word+' '
           mes_.append(word)
+    test=searchQuestion(mes_)
     return test
 def searchQuestion(mes_cut):
 #output answer
@@ -82,7 +83,7 @@ def searchQuestion(mes_cut):
 
     #+1是因為 processing有欄位名稱
     #print(pro_qna_list[maxindex+1][0],pro_qna_list[maxindex+1][1])
-    return 0
+    return pro_qna_list[maxindex+1][1]
 
 def checkenable():
   enable=[0,0,0,0,0,0]
