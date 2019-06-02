@@ -54,6 +54,80 @@ def processingMssage(mes):
           test +=word+' '
           mes_.append(word)
     return test
+def searchQuestion(mes_cut):
+#output answer
+    pro_qna_list=[]
+    with open('processed.csv', 'r') as pro_qna:
+        for line in pro_qna.readlines():
+            pro_qna_cut=line.strip()
+            pro_qna_list.append(pro_qna_cut.split(','))
+
+    finalIndex=[]
+    addweight=[0.5,1,3,1.5,1.5,1.5]
+    enable=checkenable()
+    for i in range(len(enable)):
+      findIndex= cal_index(i)
+      if findIndex:
+        if finalIndex:
+          #print(i,findIndex)
+          findIndex=[findIndex[j]*addweight[i] for j in range(len(findIndex))]
+          finalIndex=[finalIndex[j]+findIndex[j] for j in range(len(finalIndex))]
+        else:
+          #print(i,findIndex)
+          finalIndex=([findIndex[j]*addweight[i] for j in range(len(findIndex))])
+
+    #print('fin',finalIndex)
+    maxindex=finalIndex.index(max(finalIndex))
+    #print(maxindex,finalIndex[maxindex] )
+
+    #+1是因為 processing有欄位名稱
+    #print(pro_qna_list[maxindex+1][0],pro_qna_list[maxindex+1][1])
+    return 0
+
+def checkenable():
+  enable=[0,0,0,0,0,0]
+  for m in mes:
+    if len(m)==1:
+      enable[0]=1
+    elif len(m)==2:
+      enable[1]=1
+    elif len(m)==3:
+      enable[2]=1
+    elif len(m)==4:
+      enable[3]=1
+    elif len(m)==5:
+      enable[4]=1
+    else :
+      enable[5]=1
+  return enable
+def cal_index(i):
+  r_list=[]
+  findIndex=[]
+  term_id=0   
+ 
+
+  if enable[i]==1:
+    with open('w'+str(i+1)+'.csv', 'r') as r:
+      for line in r.readlines():
+        r_cut=line.strip()
+        if r_cut=='':
+          r_cut='error'
+        r_list.append(r_cut.split(','))
+
+      terms=[]
+
+      for term in r_list: 
+        terms.append(term[1].split())
+      for term in terms:
+        count=0
+        for t in term:
+          for word in mes:
+            if t==word:
+              count+=1
+              #print(t,word)
+        findIndex.append(count)
+        term_id+=1 
+  return findIndex
 def weather_fun(message):
     city=city_fun(message)
     target_url = 'https://www.cwb.gov.tw/V7/forecast/taiwan/'+city+'.htm'
