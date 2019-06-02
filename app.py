@@ -54,7 +54,8 @@ def processingMssage(mes):
           test +=word+' '
           mes_.append(word)
     #test=searchQuestion(mes_)
-    checkenable()
+    checkenable(mes_)
+    #cal_index(2)
     return test
 def searchQuestion(mes_cut):
 #output answer
@@ -86,7 +87,7 @@ def searchQuestion(mes_cut):
     #print(pro_qna_list[maxindex+1][0],pro_qna_list[maxindex+1][1])
     return pro_qna_list[maxindex+1][1]
 
-def checkenable():
+def checkenable(m):
   enable=[0,0,0,0,0,0]
   for m in mes:
     if len(m)==1:
