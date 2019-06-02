@@ -56,7 +56,7 @@ def processingMssage(mes):
           mes_.append(word)
     #test=searchQuestion(mes_)
     enable=checkenable(mes_)
-    cal_index(2,enable)
+    cal_index(2,enable,mes_)
     return test
 def searchQuestion(mes_cut):
 #output answer
@@ -104,7 +104,7 @@ def checkenable(mes):
     else :
       enable[5]=1
   return enable
-def cal_index(i,enable):
+def cal_index(i,enable,mes):
     r_list=[]
     findIndex=[]
     term_id=0   
