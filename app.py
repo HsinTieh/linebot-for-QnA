@@ -87,7 +87,7 @@ def searchQuestion(mes_cut):
     #print(pro_qna_list[maxindex+1][0],pro_qna_list[maxindex+1][1])
     return pro_qna_list[maxindex+1][1]
 
-def checkenable(m):
+def checkenable(mes):
   enable=[0,0,0,0,0,0]
   for m in mes:
     if len(m)==1:
