@@ -1,4 +1,6 @@
 line-bot-sdk
 flask
-pandas
-jieba
+gunicorn==19.9.0
+beautifulsoup4==4.6.3
+imgurpython==1.1.7
+jieba==0.39
