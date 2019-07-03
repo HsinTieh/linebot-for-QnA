@@ -14,7 +14,7 @@ QnA方式<br>
 >✔CMD<br>
 
 Step1. 先制定QnA題目，在此我是選擇台灣的公開資料集來充當。
- 
+![]( https://github.com/HsinTieh/linebot-for-QnA/blob/master/img/dataset.png) 
 資料集的形式⇧。
 Step2. 將資料集作處理(斷詞後依字數拆分檔案)
  
