@@ -21,13 +21,13 @@ QnA方式<br>
 >此步驟相關內容在 processingdataV2.ipynb 的檔案裡
    
 * Step3. Heroku 設定
- * 3.1依據下面網址制定heroku與linebot<br>
+ > 3.1依據下面網址制定heroku與linebot<br>
 ```https://yaoandy107.github.io/line-bot-tutorial/```
 
- * 3.2 修改requirements.txt
+ > 3.2 修改requirements.txt
  >內容請自requirements.txt 查看
 
- * 3.3 將從processingdataV2.ipynb下載的檔案移置heroku所在的資料夾，然後PUSH上去
+ > 3.3 將從processingdataV2.ipynb下載的檔案移置heroku所在的資料夾，然後PUSH上去
  ![](https://github.com/HsinTieh/linebot-for-QnA/blob/master/img/move.png)
 
 * Step4. 修改app.py
