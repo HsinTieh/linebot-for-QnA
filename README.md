@@ -1,4 +1,4 @@
-"# linebot-for-QnA" 
+可以參考一下步驟一一實踐 [問答linebot],謝謝
 
 QnA方式<br>
 >[✘] wait.ai <br>
@@ -77,5 +77,5 @@ QnA方式<br>
 
 ### :::補充:::
 >如果出現問題但卻不知道怎麼解決，可以用下列指令即時除錯。<br>
-```heroku logs --tail --app qnaforlinebot```
+```heroku logs --tail --app herokuAppName```
  
